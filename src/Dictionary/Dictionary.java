@@ -18,21 +18,25 @@ public class Dictionary {
         dictionary.put("how" , " Thế nào ");
         dictionary.put("one" , " Một ");
         dictionary.put("simple" , " Đơn giản ");
-        dictionary.put("engLish" , " Tiếng Anh ");
+        dictionary.put("english" , " Tiếng Anh ");
     }
 
     public void add(String english, String vietnamese) {
-        dictionary.put(english, vietnamese);
+        dictionary.put(fix(english), vietnamese);
     }
 
     public void seach() {
         Scanner sc = new Scanner(System.in);
         System.out.println(" Nhập từ muốn dịch : ");
-        String english = sc.nextLine().trim().toLowerCase(Locale.ROOT);
-        if (dictionary.containsKey(english)) {
-            System.out.println("Nghĩa của từ " + english + " là :" + dictionary.get(english));
+        String english = sc.nextLine();
+        String english2 = fix(english);
+        boolean isContainWord = dictionary.containsKey(english2);
+        if (isContainWord) {
+            System.out.println("Nghĩa của từ " + english2 + " là :" + dictionary.get(english2));
         } else
             System.out.println("Từ này lạ thế ...");
     }
-
+    public String fix (String string ){
+        return string.trim().toLowerCase(Locale.ROOT);
+    }
 }
