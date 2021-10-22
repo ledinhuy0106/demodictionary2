@@ -1,6 +1,7 @@
 package Dictionary;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -11,13 +12,13 @@ public class Dictionary {
     }
 
     public Dictionary() {
-        dictionary.put("Hello" , " Xin chào ");
+        dictionary.put("hello" , " Xin chào ");
         dictionary.put("love" , " Em yêu anh ");
-        dictionary.put("What" , " Cái gì ");
-        dictionary.put("How" , " Thế nào ");
-        dictionary.put("One" , " Một ");
-        dictionary.put("Simple" , " Đơn giản ");
-        dictionary.put("EngLish" , " Tiếng Anh ");
+        dictionary.put("what" , " Cái gì ");
+        dictionary.put("how" , " Thế nào ");
+        dictionary.put("one" , " Một ");
+        dictionary.put("simple" , " Đơn giản ");
+        dictionary.put("engLish" , " Tiếng Anh ");
     }
 
     public void add(String english, String vietnamese) {
@@ -27,7 +28,7 @@ public class Dictionary {
     public void seach() {
         Scanner sc = new Scanner(System.in);
         System.out.println(" Nhập từ muốn dịch : ");
-        String english = sc.nextLine();
+        String english = sc.nextLine().trim().toLowerCase(Locale.ROOT);
         if (dictionary.containsKey(english)) {
             System.out.println("Nghĩa của từ " + english + " là :" + dictionary.get(english));
         } else
